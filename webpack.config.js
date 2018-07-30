@@ -6,7 +6,13 @@ const config = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'app.js'
-  }, 
+  },
+  devServer: {
+    contentBase: './dist',
+    port: 8081,
+    inline: true
+  },
+  devtool: 'source-map',
   module: {
     rules: [{
       test: /\.js$/,
