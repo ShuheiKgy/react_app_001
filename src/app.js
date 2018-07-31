@@ -2,8 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 class App extends React.Component {
+    onClickButton() {
+        alert("警告！")
+    }
     render() {
-        return <h1>Hello, World</h1>;
+        return <button onClick={this.onClickButton}>押す</button>;
     }
 }
 
