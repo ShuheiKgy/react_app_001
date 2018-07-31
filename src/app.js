@@ -6,9 +6,12 @@ class App extends React.Component {
         super()
         this.state = {
             input: "",
-            todos: []
+            todos: [],
+            time: new Date(),
+            intervalId: ""
         }
         this.addToDo = this.addToDo.bind(this)
+        this.tick = this.tick.bind(this)
     }
 
     addToDo() {
@@ -17,12 +20,29 @@ class App extends React.Component {
         this.setState({todos: todos, input: ""})
     }
 
+    tick() {
+        let { time } = this.state
+        time.setSeconds(time.getSeconds() + 1)
+        this.setState({time: time})
+    }
+
+    componentDidMount() {
+        let id = setInterval(this.tick, 1000)
+        this.setState({intervalId: id})
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.state.intervalId)
+    }
+
     render() {
         return (
             <div>
                 <h1>新しいタスク</h1>
                 <input type="text" onChange={e => this.setState({input: e.target.value})} value={this.state.input} />
                 <button onClick={this.addToDo}>追加</button>
+                <h2>現在の時間</h2>
+                <span>今の時間 {this.state.time.toLocaleTimeString()}</span>
                 <h2>ToDo:</h2>
                 <ul>
                     {this.state.todos.map((todo) => {
