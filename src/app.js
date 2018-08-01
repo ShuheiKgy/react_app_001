@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ToDo from './todos';
 import Todo from './todos';
 
 export default class App extends React.Component {
