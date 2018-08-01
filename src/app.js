@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import ToDo from './todos';
 import Todo from './todos';
 
-class App extends React.Component {
+export default class App extends React.Component {
     constructor() {
         super()
         this.state = {
@@ -58,8 +58,3 @@ class App extends React.Component {
         )
     }
 }
-
-ReactDOM.render(
-    <App />,
-    document.getElementById('app')
-)
