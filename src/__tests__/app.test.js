@@ -6,12 +6,12 @@ import App from './../app.js'
 
 configure({ adapter: new Adapter() });
 
-describe('test', ()=>{
+describe('test', () => {
 
   const app = shallow(<App />)
 
-  it('input', ()=>{
-    app.find('input').simulate('change', {target: {value: 'My new value'}})
+  it('input', () => {
+    app.find('input').simulate('change', { target: { value: 'My new value' } })
     expect(app.state('input')).toBe('My new value')
 
     app.find('button').simulate('click')
